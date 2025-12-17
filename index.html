@@ -2,40 +2,115 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <title>Good Game Lab</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GoodGameLab – Test page</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f4f4f4;
+        * {
             margin: 0;
-            padding: 40px;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --grey: #cfcfcf;       /* szary */
+            --purple: #705196;     /* ciemniejszy, mało nasycony fiolet */
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+
+        .page {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* --- TOP HALF --- */
+        .top-half {
+            flex: 1;
+            background: var(--grey);
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            padding-bottom: 5vh;
             text-align: center;
         }
-        .box {
-            background: white;
-            padding: 40px;
-            margin: auto;
-            max-width: 600px;
-            border-radius: 12px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+
+        .title {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            color: var(--purple);
+            letter-spacing: 0.04em;
         }
-        h1 {
-            color: #333;
+
+        /* --- BOTTOM HALF --- */
+        .bottom-half {
+            flex: 1;
+            background: var(--purple);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding-top: 5vh;
+            text-align: center;
+            /* potrzebne, by umieścić link niżej */
+            position: relative;
         }
-        p {
-            font-size: 18px;
-            color: #555;
+
+        .subtitle {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            color: var(--grey);
+            opacity: 0.95;
+        }
+
+        /* Discord button positioned lower */
+        .discord-wrapper {
+            position: absolute;
+            bottom: 8vh; /* reguluj: większa wartość = wyżej, mniejsza = niżej */
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .discord-link {
+            text-decoration: none;
+            font-size: 1rem;
+            padding: 10px 20px;
+            border-radius: 999px;
+            border: 1px solid rgba(0,0,0,0.18);
+            background: rgba(255,255,255,0.9);
+            color: #2b2540;
+            backdrop-filter: blur(6px);
+        }
+
+        .discord-link:hover {
+            background: #ffffff;
         }
     </style>
 </head>
 <body>
+    <div class="page">
 
-<div class="box">
-    <h1>GoodGameLab</h1>
-    <p>This is a test page on GitHub Pages.</p>
-    <p>If you can see it - it works 🎉</p>
-</div>
+        <div class="top-half">
+            <h1 class="title">Good Game Lab.</h1>
+        </div>
 
+        <div class="bottom-half">
+            <p class="subtitle">maximising fun-to-pixel ratio</p>
+
+            <div class="discord-wrapper">
+                <a class="discord-link"
+                   href="https://discord.gg/example"
+                   target="_blank" rel="noopener noreferrer">
+                    Join me on Discord
+                </a>
+            </div>
+        </div>
+
+    </div>
 </body>
 </html>
